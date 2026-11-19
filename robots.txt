@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wfsmith10.github.io/replacement-filter-finder/sitemap.xml

@@ -1,0 +1,12 @@
+{
+ "name": "Replacement Filter Finder",
+ "tagline": "Find the replacement filter that fits: pool and spa cartridges and furnace/HVAC air filters, by size, part number, and fit.",
+ "origin": "https://wfsmith10.github.io",
+ "base_path": "/replacement-filter-finder",
+ "author": "William Smith",
+ "contact_email": "CrucibleWorkshop@gmail.com",
+ "nav": ["pool-spa-cartridges", "furnace-filters", "about", "contact"],
+ "footer": ["index", "pool-spa-cartridges", "furnace-filters", "about", "affiliate-disclosure", "privacy", "contact"],
+ "disclosure_short": "Some links on this page are affiliate links. If you buy through them, we may earn a commission at no extra cost to you. It does not change which filters we list or how we describe them.",
+ "footer_note": "Size and fit information only. Always confirm dimensions against your existing filter or your equipment manual before buying."
+}

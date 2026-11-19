@@ -1,0 +1,22 @@
+<!--{"title": "Searcher-focused title (under ~60 chars)", "description": "One or two sentences answering what the searcher wants (under ~155 chars).", "h1": "Page heading", "nav_label": "Short breadcrumb label", "schema_type": "Article", "parent": "CATEGORY-SLUG", "affiliate": false, "updated": "YYYY-MM-DD"}-->
+<!--
+Copy to content/<slug>.html (slug = lowercase-words-with-hyphens) and fill in.
+- "parent": the category page slug (sets breadcrumbs and BreadcrumbList schema).
+- "affiliate": set to true if the page contains ANY affiliate link. The build then puts the
+  affiliate disclosure banner at the top of the page. build.py --check fails if a page has
+  rel="sponsored" links without "affiliate": true.
+- Affiliate links: <a href="https://..." rel="sponsored nofollow noopener">text</a>
+- Internal links: href="{{base}}/slug/". Article pages must link to >=2 existing pages (checked).
+- Every fact needs a source link. No invented numbers, no claims of testing we didn't do.
+-->
+<p>Answer the question in the first paragraph.</p>
+
+<h2>Section</h2>
+<p>Original comparison / checklist / table built from cited sources.</p>
+
+<h2>Sources</h2>
+<ul>
+ <li><a href="https://example.com/source" rel="noopener">Source title</a> (checked YYYY-MM-DD)</li>
+</ul>
+
+<p>Related: <a href="{{base}}/CATEGORY-SLUG/">category</a> · <a href="{{base}}/OTHER-PAGE/">other page</a></p>
