@@ -120,6 +120,7 @@ def render(page, pages):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(page["title"])}</title>
 <meta name="description" content="{e(page["description"])}">
+<meta name="google-site-verification" content="cwg7mBj5bSX5ovdlhtgpV2a0am_npVT5KAARmW5twY8">
 {robots or f'<link rel="canonical" href="{abs_url(slug)}">'}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{e(CFG["name"])}">
