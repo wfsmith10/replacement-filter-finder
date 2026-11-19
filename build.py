@@ -29,6 +29,8 @@ ORIGIN = CFG["origin"].rstrip("/")           # e.g. "https://wfsmith10.github.io
 SITE_URL = ORIGIN + BASE + "/"
 TODAY = datetime.date.today().isoformat()
 
+CF_BEACON = '<!-- Cloudflare Web Analytics --><script type=\'module\' src=\'https://static.cloudflareinsights.com/beacon.min.js\' data-cf-beacon=\'{"token": "2ed8f27f3bfb4315b0222714e84995ff"}\'></script><!-- End Cloudflare Web Analytics -->'
+
 
 def load_pages():
     pages = {}
@@ -158,6 +160,7 @@ def render(page, pages):
 <p>Run by {e(CFG["author"])}. Pages are researched with AI assistance and checked against the sources they cite. <a href="{url_path("about")}">How we make pages</a>.</p>
 <p>© {datetime.date.today().year} {e(CFG["name"])} · <a href="mailto:{CFG["contact_email"]}">{CFG["contact_email"]}</a></p>
 </div></footer>
+{CF_BEACON}
 </body>
 </html>
 """
