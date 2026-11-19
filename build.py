@@ -113,6 +113,11 @@ def render(page, pages):
     robots = '<meta name="robots" content="noindex">' if page.get("noindex") else ""
     updated = page.get("updated")
     upd_html = f'<p class="updated">Last updated: <time datetime="{updated}">{updated}</time></p>' if updated and slug != "index" else ""
+    if page.get("schema_type") == "Article" and updated:
+        # Real editorial ownership (matches the About page): named editor + AI-assistance note + date.
+        upd_html = (f'<p class="byline">Edited by {e(CFG["author"])} · researched with AI assistance · '
+                    f'Last updated <time datetime="{updated}">{updated}</time> · '
+                    f'<a href="{url_path("about")}">How we make pages</a></p>')
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -127,6 +132,8 @@ def render(page, pages):
 <meta property="og:title" content="{e(page["title"])}">
 <meta property="og:description" content="{e(page["description"])}">
 {"" if robots else f'<meta property="og:url" content="{abs_url(slug)}">'}
+<link rel="icon" href="{BASE}/assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="{CFG.get("theme_color", "#ffffff")}">
 <link rel="stylesheet" href="{BASE}/assets/style.css">
 <script type="application/ld+json">
 {jsonld}
@@ -135,7 +142,7 @@ def render(page, pages):
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><div class="wrap">
-<a class="brand" href="{BASE}/">{e(CFG["name"])}</a>
+<a class="brand" href="{BASE}/"><img class="mark" src="{BASE}/assets/favicon.svg" alt="" width="28" height="28">{e(CFG["name"])}</a>
 <nav class="site-nav" aria-label="Main">{nav}</nav>
 </div></header>
 <main id="main" class="wrap">
@@ -148,6 +155,7 @@ def render(page, pages):
 <footer class="site-footer"><div class="wrap">
 <p>{foot}</p>
 <p>{e(CFG["footer_note"])}</p>
+<p>Run by {e(CFG["author"])}. Pages are researched with AI assistance and checked against the sources they cite. <a href="{url_path("about")}">How we make pages</a>.</p>
 <p>© {datetime.date.today().year} {e(CFG["name"])} · <a href="mailto:{CFG["contact_email"]}">{CFG["contact_email"]}</a></p>
 </div></footer>
 </body>
